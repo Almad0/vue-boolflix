@@ -6,12 +6,12 @@
 }
 
 body {
-    background: grey;
+    background: #333333;
     min-height: 100vh;
 }
 
 .container {
-    width: 1070px;
+    width: 100%;
     height: 100%;
     margin: 0 auto;
 }
@@ -50,7 +50,7 @@ header {
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-    padding: 100px 0;
+    padding: 50px 0;
 }
 
 .cd {
@@ -61,7 +61,7 @@ header {
     flex-basis: 200px;
     padding: 20px;
     margin: 10px 20px;
-    height: 360px;
+    height: 300px;
     background: rgb(46, 58, 70);
     text-align: center;
 }
