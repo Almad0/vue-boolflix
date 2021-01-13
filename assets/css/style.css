@@ -86,9 +86,13 @@ header {
     color: grey;
 }
 
+.hidden{
+  display: none;
+}
 
-
-
+.visible{
+  display: block;
+}
 
 
 
