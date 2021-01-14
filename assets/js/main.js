@@ -11,14 +11,15 @@ let root = new Vue({
 
 
 
+
   methods: {
     searchApiMovie: function() {
 
       axios.get("https://api.themoviedb.org/3/search/movie?api_key=101e0cd873c9360f9bc83e1b717d2943&language=it-IT&query=" + this.search + "&page=1&include_adult=false")
         .then(resp => {
           console.log(resp.data.results);
-          this.moviesData = (resp.data.results);
-          this.search = null
+          this.moviesData = resp.data.results;
+          this.search = null;
           this.moviesData.forEach(item => {
             let voto = Math.ceil(item.vote_average / 2);
             item.vote_average = voto;
@@ -38,14 +39,15 @@ let root = new Vue({
               item.original_language = "dk";
             } else if (item.original_language == "hu") {
               item.original_language = "ua";
-            }
+            };
           });
-        }),
+        });
 
-        axios.get("https://api.themoviedb.org/3/search/tv?api_key=101e0cd873c9360f9bc83e1b717d2943&language=it-IT&page=1&query=" + this.search + "&include_adult=false")
+
+      axios.get("https://api.themoviedb.org/3/search/tv?api_key=101e0cd873c9360f9bc83e1b717d2943&language=it-IT&page=1&query=" + this.search + "&include_adult=false")
         .then(resp => {
-          this.tvShowData = (resp.data.results);
-          this.search = null
+          this.tvShowData = resp.data.results;
+          this.search = null;
           this.tvShowData.forEach(item => {
             let voto = Math.ceil(item.vote_average / 2);
             item.vote_average = voto;
@@ -65,13 +67,11 @@ let root = new Vue({
               item.original_language = "dk";
             } else if (item.original_language == "hu") {
               item.original_language = "ua";
-            }
+            };
           });
         });
+    }},
 
-    }
-
-  },
 
 
 });
