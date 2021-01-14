@@ -6,13 +6,13 @@
 }
 
 body {
-    background: #333333;
     min-height: 100vh;
 }
 
 .container {
     width: 100%;
     height: 100%;
+    background: radial-gradient(circle, #490000 19%,#000000 79%);
 }
 
 header {

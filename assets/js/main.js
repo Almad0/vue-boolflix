@@ -13,6 +13,8 @@ mounted(){
   // generare una array con parole random dopo
   this.search = "return"
   this.searchApiMovie();
+  this.flagError();
+  this.posterError();
 },
 
 
@@ -73,7 +75,17 @@ mounted(){
             };
           });
         });
-    }},
+    },
+
+    flagError: function(event){
+      event.target.src = "assets/img/32.png"
+    },
+
+    posterError: function(event){
+      event.target.src = "assets/img/poster.jpg"
+    }
+
+  },
 
 });
 

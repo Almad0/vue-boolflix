@@ -26,7 +26,7 @@
         <div class="cd" v-for="movie in moviesData">
 
           <div class="cardPoster">
-            <img :src=`https://image.tmdb.org/t/p/w342${movie.poster_path}`>
+            <img :src=`https://image.tmdb.org/t/p/w342${movie.poster_path}` alt="poster" @error="posterError">
           </div>
 
           <div class="cardInfo">
@@ -34,7 +34,7 @@
             <p class="originalTitle"><strong>Titolo originale: </strong>{{movie.original_title}}</p>
             <span>Nazionalità: </span>
             <span class="originalFlag">
-              <img :src=`https://www.countryflags.io/${movie.original_language}/flat/32.png` :alt=`${movie.original_language}`>
+              <img :src=`https://www.countryflags.io/${movie.original_language}/flat/32.png` :alt=`${movie.original_language}` @error="flagError">
             </span>
             <p class="originalLang"><strong>Lingua originale: </strong>{{movie.original_language}}</p>
             <p class="vote">
@@ -50,7 +50,7 @@
         <div class="cd" v-for="serie in tvShowData">
 
           <div class="cardPoster">
-            <img :src=`https://image.tmdb.org/t/p/w342${serie.poster_path}`>
+            <img :src=`https://image.tmdb.org/t/p/w342${serie.poster_path}` @error="posterError">
           </div>
 
           <div class="cardInfo">
@@ -58,7 +58,7 @@
             <p class="originalTitle"><strong>Titolo originale: </strong>{{serie.original_name}}</p>
             <span>Nazionalità: </span>
             <span class="originalFlag">
-              <img :src=`https://www.countryflags.io/${serie.original_language}/flat/32.png` :alt=`${serie.original_language}`>
+              <img :src=`https://www.countryflags.io/${serie.original_language}/flat/32.png` :alt=`${serie.original_language}` @error="flagError">
             </span>
             <p class="originalLang"><strong>Lingua originale: </strong>{{serie.original_language}}</p>
             <p class="vote">
