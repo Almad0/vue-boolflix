@@ -9,7 +9,11 @@ let root = new Vue({
     lingua: "",
   },
 
-
+mounted(){
+  // generare una array con parole random dopo
+  this.search = "return"
+  this.searchApiMovie();
+},
 
 
   methods: {
@@ -19,7 +23,6 @@ let root = new Vue({
         .then(resp => {
           console.log(resp.data.results);
           this.moviesData = resp.data.results;
-          this.search = null;
           this.moviesData.forEach(item => {
             let voto = Math.ceil(item.vote_average / 2);
             item.vote_average = voto;
@@ -71,8 +74,6 @@ let root = new Vue({
           });
         });
     }},
-
-
 
 });
 
