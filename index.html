@@ -23,58 +23,51 @@
 
     <main>
       <div class="cds-container container film">
-        <div class="cd vfor">
+        <div class="cd" v-for="movie in moviesData">
 
           <div class="cardPoster">
-            <img src="https://image.tmdb.org/t/p/w342/oGXtT5UW8lDWt8uxlww2zw9GmBs.jpg">
+            <img :src=`https://image.tmdb.org/t/p/w342${movie.poster_path}`>
           </div>
 
           <div class="cardInfo">
-            <h3>Mulhollanddrdwòlidjalòioejfòaiwejfòoaiejfdfsdf</h3>
-            <p class="originalTitle"><strong>Titolo originale: </strong>Mulolland drascacadd dddddddddddddd dddddd scasive</p>
+            <h3>{{movie.title}}</h3>
+            <p class="originalTitle"><strong>Titolo originale: </strong>{{movie.original_title}}</p>
             <span>Lingua originale: </span>
             <span class="originalFlag">
-              <img src="https://www.countryflags.io/it/flat/32.png" alt="it">
+              <img :src=`https://www.countryflags.io/${movie.original_language}/flat/32.png` :alt=`${movie.original_language}`>
             </span>
-            <p class="originalLang"><strong>Lingua originale: </strong>IT</p>
+            <p class="originalLang"><strong>Lingua originale: </strong>{{movie.original_language}}</p>
             <p class="vote">
-              <i class="fas fa-star"></i><i class="far fa-star"></i>
+              <i v-for="piene in movie.vote_average" class="fas fa-star"></i><i v-for="vuote in (5-movie.vote_average)" class="far fa-star"></i>
             </p>
-            <p class="overView"><strong>Overview: </strong>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius, velit. Cum, nesciunt expedita accusantium. Cupiditate molestiaaconsectetur adipisicing elit. Eius, velit. Cum, nesciunt expedita accusantium. Cupiditate molestconsectetur adipisicing elit. Eius, velit. Cum, nesciunt expedita accusantium. Cupiditate molestconsectetur adipisicing elit. Eius, velit. Cum, nesciunt expedita accusantium. Cupiditate molestsce, temporibus quos.</p>
+            <p class="overView"><strong>Overview: </strong>{{movie.overview}}</p>
           </div>
-        </div>
-      </div>
-
-      <!-- <div class="cds-container container film">
-        <div class="cd" v-for="movie in moviesData">
-          <img :src=`https://image.tmdb.org/t/p/w342${movie.poster_path}`>
-          <h3>{{movie.title}}</h3>
-          <span class="originalTitle">{{movie.original_title}}</span>
-          <span>
-            <img :src=`https://www.countryflags.io/${movie.original_language}/flat/32.png` :alt=`${movie.original_language}`>
-          </span>
-          <span class="vote">
-            <i v-for="piene in movie.vote_average" class="fas fa-star"></i><i v-for="vuote in (5-movie.vote_average)" class="far fa-star"></i>
-          </span>
         </div>
       </div>
 
 
       <div class="cds-container container tvSerie">
-
         <div class="cd" v-for="serie in tvShowData">
-          <img :src=`https://image.tmdb.org/t/p/w342${serie.poster_path}`>
-          <h3>{{serie.name}}</h3>
-          <span class="originalTitle">{{serie.original_name}}</span>
-          <span>
-            <img :src=`https://www.countryflags.io/${serie.original_language}/flat/32.png` :alt=`${serie.original_language}`>
-          </span>
-          <span>{{serie.original_language}}</span>
-          <span class="vote">
-            <i v-for="pino in serie.vote_average" class="fas fa-star"></i><i v-for="gino in (5-serie.vote_average)" class="far fa-star"></i>
-          </span>
+
+          <div class="cardPoster">
+            <img :src=`https://image.tmdb.org/t/p/w342${serie.poster_path}`>
+          </div>
+
+          <div class="cardInfo">
+            <h3>{{serie.name}}</h3>
+            <p class="originalTitle"><strong>Titolo originale: </strong>{{serie.original_name}}</p>
+            <span>Lingua originale: </span>
+            <span class="originalFlag">
+              <img :src=`https://www.countryflags.io/${serie.original_language}/flat/32.png` :alt=`${serie.original_language}`>
+            </span>
+            <p class="originalLang"><strong>Lingua originale: </strong>{{serie.original_language}}</p>
+            <p class="vote">
+              <i v-for="piene in serie.vote_average" class="fas fa-star"></i><i v-for="vuote in (5-serie.vote_average)" class="far fa-star"></i>
+            </p>
+            <p class="overView"><strong>Overview: </strong>{{serie.overview}}</p>
+          </div>
         </div>
-      </div> -->
+      </div>
 
     </main>
   </div>

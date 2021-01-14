@@ -133,15 +133,9 @@ header {
   max-height: 120px;
 }
 
-
-
 .cd .cardInfo:hover{
   opacity: 1;
 }
-
-/* .cd .cardPoster:hover .cardInfo{
-  opacity: 1;
-} */
 
 
 
