@@ -22,53 +22,52 @@
     </header>
 
     <main>
-      <div class="cds-container container film">
-        <div class="cd" v-for="movie in moviesData">
-
-          <div class="cardPoster">
-            <img :src=`https://image.tmdb.org/t/p/w342${movie.poster_path}` alt="poster" @error="posterError">
+      <div class="wrap">
+        <div v-if="moviesData != ''" class="cds-container container film">
+          <div class="cd" v-for="movie in moviesData">
+            <div class="cardPoster">
+              <img :src=`https://image.tmdb.org/t/p/w342${movie.poster_path}` alt="poster" @error="posterError">
+            </div>
+            <div class="cardInfo">
+              <h3>{{movie.title}}</h3>
+              <p class="originalTitle"><strong>Titolo originale: </strong>{{movie.original_title}}</p>
+              <span>Nazionalità: </span>
+              <span class="originalFlag">
+                <img :src=`https://www.countryflags.io/${movie.original_language}/flat/32.png` :alt=`${movie.original_language}` @error="flagError">
+              </span>
+              <p class="originalLang"><strong>Lingua originale: </strong>{{movie.original_language}}</p>
+              <p class="vote">
+                <i v-for="piene in movie.vote_average" class="fas fa-star"></i><i v-for="vuote in (5-movie.vote_average)" class="far fa-star"></i>
+              </p>
+              <p v-if="movie.overview" class="overView"><strong>Overview: </strong>{{movie.overview}}</p>
+              <p v-else class="overView"><strong>Overview: </strong>Non disponibile</p>
+            </div>
           </div>
+        </div>
 
-          <div class="cardInfo">
-            <h3>{{movie.title}}</h3>
-            <p class="originalTitle"><strong>Titolo originale: </strong>{{movie.original_title}}</p>
-            <span>Nazionalità: </span>
-            <span class="originalFlag">
-              <img :src=`https://www.countryflags.io/${movie.original_language}/flat/32.png` :alt=`${movie.original_language}` @error="flagError">
-            </span>
-            <p class="originalLang"><strong>Lingua originale: </strong>{{movie.original_language}}</p>
-            <p class="vote">
-              <i v-for="piene in movie.vote_average" class="fas fa-star"></i><i v-for="vuote in (5-movie.vote_average)" class="far fa-star"></i>
-            </p>
-            <p class="overView"><strong>Overview: </strong>{{movie.overview}}</p>
+
+        <div v-if="tvShowData != ''" class="cds-container container tvSerie">
+          <div class="cd" v-for="serie in tvShowData">
+            <div class="cardPoster">
+              <img :src=`https://image.tmdb.org/t/p/w342${serie.poster_path}` @error="posterError">
+            </div>
+            <div class="cardInfo">
+              <h3>{{serie.name}}</h3>
+              <p class="originalTitle"><strong>Titolo originale: </strong>{{serie.original_name}}</p>
+              <span>Nazionalità: </span>
+              <span class="originalFlag">
+                <img :src=`https://www.countryflags.io/${serie.original_language}/flat/32.png` :alt=`${serie.original_language}` @error="flagError">
+              </span>
+              <p class="originalLang"><strong>Lingua originale: </strong>{{serie.original_language}}</p>
+              <p class="vote">
+                <i v-for="piene in serie.vote_average" class="fas fa-star"></i><i v-for="vuote in (5-serie.vote_average)" class="far fa-star"></i>
+              </p>
+              <p v-if="serie.overview" class="overView"><strong>Overview: </strong>{{serie.overview}}</p>
+              <p v-else class="overView"><strong>Overview: </strong>Non disponibile</p>
+            </div>
           </div>
         </div>
       </div>
-
-
-      <div class="cds-container container tvSerie">
-        <div class="cd" v-for="serie in tvShowData">
-
-          <div class="cardPoster">
-            <img :src=`https://image.tmdb.org/t/p/w342${serie.poster_path}` @error="posterError">
-          </div>
-
-          <div class="cardInfo">
-            <h3>{{serie.name}}</h3>
-            <p class="originalTitle"><strong>Titolo originale: </strong>{{serie.original_name}}</p>
-            <span>Nazionalità: </span>
-            <span class="originalFlag">
-              <img :src=`https://www.countryflags.io/${serie.original_language}/flat/32.png` :alt=`${serie.original_language}` @error="flagError">
-            </span>
-            <p class="originalLang"><strong>Lingua originale: </strong>{{serie.original_language}}</p>
-            <p class="vote">
-              <i v-for="piene in serie.vote_average" class="fas fa-star"></i><i v-for="vuote in (5-serie.vote_average)" class="far fa-star"></i>
-            </p>
-            <p class="overView"><strong>Overview: </strong>{{serie.overview}}</p>
-          </div>
-        </div>
-      </div>
-
     </main>
   </div>
 
