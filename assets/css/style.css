@@ -5,7 +5,10 @@
   box-sizing: border-box;
 }
 
-body {}
+body {
+  height: 100%;
+  background: radial-gradient(circle, #490000 19%, #000000 79%);
+}
 
 .wrap {
   height: 100%;
@@ -42,6 +45,25 @@ header {
   color: red;
   border-radius: 5px;
   margin-right: 20px;
+  border-style: none;
+}
+
+.searchBar button:focus{
+  outline: none;
+  box-shadow: 0 0 3pt 2pt red;
+}
+
+.searchBar input{
+  width: 200px;
+  background-color: #340000;
+  color: white;
+  border-radius: 8px;
+  border-style: none;
+}
+
+.searchBar input:focus{
+  outline: none;
+  box-shadow: 0 0 3pt 2pt red;
 }
 
 .headContainer img {
@@ -49,12 +71,21 @@ header {
   margin-top: 10px;
 }
 
+.wrap .sectionTitle{
+  display: block;
+  margin: auto;
+  filter: drop-shadow(1px 1px 0 black)
+          drop-shadow(-1px -1px 0 black);
+  width: 100px;
+  padding: 30px 0 0 0;
+}
+
 .cds-container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  padding: 50px 0;
+  padding: 40px 0;
 }
 
 .cd {
@@ -67,13 +98,15 @@ header {
   flex-basis: 200px;
   height: 300px;
   margin: 10px;
-  border: 2px solid #9c0000;
+  border: 2px solid #340000;
+  border-radius: 12px;
   background: black;
 }
 
 .cd .cardPoster img {
   width: 200px;
-  height: 296px
+  height: 296px;
+  border-radius: 12px;
 }
 
 .cd .cardInfo {
@@ -88,7 +121,8 @@ header {
   top: 0;
   left: 0;
   opacity: 0;
-  transition: opacity 0.5s, transform 0.5s;
+  border-radius: 12px;
+  transition: opacity 0.5s, transform 0.5s, box-shadow 0.5s;
 }
 
 .cd h3 {
@@ -149,6 +183,7 @@ header {
   opacity: 1;
   transform: scale(1.12);
   border-radius: 12px;
+  box-shadow: 0 0 10px red;
 }
 
 ::-webkit-scrollbar {

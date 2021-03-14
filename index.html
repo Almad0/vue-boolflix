@@ -23,7 +23,9 @@
 
     <main>
       <div class="wrap">
+        <img class="sectionTitle" src="./assets/img/films.png" alt="">
         <div v-if="moviesData != ''" class="cds-container container film">
+
           <div class="cd" v-for="movie in moviesData">
             <div class="cardPoster">
               <img :src=`https://image.tmdb.org/t/p/w342${movie.poster_path}` alt="poster" @error="posterError">
@@ -45,7 +47,7 @@
           </div>
         </div>
 
-
+        <img class="sectionTitle" src="./assets/img/series.png" alt="">
         <div v-if="tvShowData != ''" class="cds-container container tvSerie">
           <div class="cd" v-for="serie in tvShowData">
             <div class="cardPoster">
